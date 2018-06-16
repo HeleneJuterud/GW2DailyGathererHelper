@@ -10,7 +10,7 @@
 
   gtag('config', 'UA-113563405-1');
 </script>
-	<title>TDA - Daily Gatherer Helper</title>  
+	<title>TDA - Daily Gatherer Helper</title>
   <meta charset="UTF-8" />
 		<link href="css/style.css" type="text/css" rel="stylesheet">
   		<link href="css/lightbox.min.css" type="text/Css" rel="stylesheet">
@@ -24,7 +24,7 @@
   <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
 </head>
 <body>
- 
+
 
   <nav>
     <div class="nav-wrapper">
@@ -36,7 +36,7 @@
         <li><a href="http://www.alpharevolver.com/thedaemonarmy">About TDA & AR <span class="material-icons">open_in_new</span></a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
-      	<li><a href="about.html">About this site</a></li>      
+      	<li><a href="about.html">About this site</a></li>
         <li><a href="#">Daily Gatherer Helper</a></li>
         <li><a href="http://www.alpharevolver.com/thedaemonarmy">About TDA & AR <span class="material-icons">open_in_new</span></a></li>
       </ul>
@@ -48,13 +48,12 @@
         <p class="flow-text presentsText white-text"><a class="ARLink" href="http://www.alpharevolver.com" target="_blank">TDA & Alpha Revolver</a> presents</p>
         <h1 class="DailyGathererText">Daily Gatherer Helper</h1>
     </div>
-		<!-- <img src="images/ScreenshotsOfficial/gw2header.png"> -->
 	</header>
 	<div class="Wrapper">
-		
+
     <div class="row center-align">
       <p data-bind="click: findDailyAchievements()"><strong>Today's gathering dailies</strong>  <i class="material-icons">autorenew</i></p>
-             
+
 				 <div data-bind="visible: vm.DailyGathererAchievements().length <= 0" class="preloader-wrapper small active">
 				    <div class="spinner-layer spinner-blue-only">
 				      <div class="circle-clipper left">
@@ -66,7 +65,7 @@
 				      </div>
 				    </div>
 				  </div>
-          <p>     	
+          <p>
             <i data-bind="visible: vm.DailyGathererAchievements().length > 0">Click on the daily to find the best locations to complete them</i>
           </p>
 
@@ -83,13 +82,13 @@
            <p class="flow-text advancedSearchLink" data-bind="click: function(){  toggleAdvancedSearch() }"><i class="material-icons">search</i><i class="material-icons" data-bind="text: showAdvancedSearch() ? 'expand_less' : 'expand_more'"></i>
             Specific search</p>
        </div>
-	    
+
 	    <div class="row" data-bind="visible: showAdvancedSearch">
 	        <div class="input-field col s12 m5 offset-m1 l3 offset-l3">
-	         		
+
 			    <select id="DailySelect" class="icons margin-top-25px"  data-bind="event: { change: function() { return FilterResults() } }, options: DailyOptions,
 			    												 optionsText: 'name' ,
-			    												 value: vm.selectedDailyOption,	                              		   	
+			    												 value: vm.selectedDailyOption,
 			    												 optionsCaption: 'Choose your daily',
 			    												 optionsValue: function(item){ return item},
 			    												 optionsAfterRender: setDailyOptionicon,
@@ -98,19 +97,19 @@
 			    </select>
 			   <label class="selectFontSize">Daily</label>
 	  		</div>
-	      
+
 	        <div class="input-field col s12 m5 l3">
 				<select  id="AreaSelect" class="icons margin-top-25px"  data-bind="event: { change: function() { return FilterResults() } }, options: AreaOptions,
 			    												 optionsText: function(item) { return item.name } ,
-			    												 value: vm.selectedAreaOption,			    						
+			    												 value: vm.selectedAreaOption,
 			    												 optionsCaption: 'Choose area',
-			    												 valueAllowUnset: true			
+			    												 valueAllowUnset: true
 			    												 ">
 			    </select>
 			    <label class="selectFontSize">Area</label>
 	  		</div>
 	    </div>
-    </div> 
+    </div>
 
     <div class="row">
     	<div class="col s12 m10 offset-m1 l8 offset-l2 resultContainer" data-bind="foreach: FilterResults " >
@@ -127,7 +126,7 @@
             </div>
             <div class="card-content WaypointInfo " data-bind="attr: { 'data-clipboard-text': WaypointCode} " >
                 <div class="col s2 waypointIconPlacement center-align">
-                <img src="images/icons/waypointIcon.png" alt="Waypoint icon" class="circle">          
+                <img src="images/icons/waypointIcon.png" alt="Waypoint icon" class="circle">
               </div>
               <div class="col s10">
                 <blockquote class="waypointBlockQuote">
@@ -135,7 +134,7 @@
                   <strong  class="greytext WaypointCode" data-bind="text: WaypointCode"></strong><span class="clickToCopyText" data-bind="visible: Clipboard.isSupported()"> - Click to copy</span>
                 </blockquote>
               </div>
-              
+
             </div>
             <!-- ko if: Type() == "Minidungeon" && typeof Description != 'undefined' -->
             <div class="card-reveal">
@@ -151,26 +150,14 @@
         </div>
       </div>
     </div>
-
-<!-- <footer class="col s12">
-	<hr>
-	<div class="row">
-		<div class="col s12 m5 offset-m1">
-			<span>Contact us</span>
-		</div>
-			<div class="col s12 m5 offset-m1">
-			<a href="legalnotice.html">Legal notice</a>
-		</div>
-	</div>
-</footer>-->
 		<script src="js/knockout.3.4.2.js"></script>
 		<script src="js/knockoutMapping.js"></script>
-	
+
 		<script src="js/jquery-3.2.1.min.js"></script>
 		<script src="js/clipboard.min.js"></script>
 		<script src="js/minifiedscript.js"></script>
 
-      
+
       <script defer src="js/lightbox.min.js"></script>
        <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>

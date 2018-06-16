@@ -24,13 +24,12 @@
       e.clearSelection();
     });
 
-// Make sure there's max 2 results on each line.
+// Make sure there's max 2 results on each line. By adding clear: both if true.
     self.canBeDividedbytwo = function(number){
-        if((number % 2) === 0)
-          return true;
-
-        return false;
+      return (number % 2 === 0 ?  true : false);
     }
+
+  // Initialize variables & data
   self.showAdvancedSearch = ko.observable(false);
   self.selectedDailyOption = ko.observable();
   self.selectedAreaOption = ko.observable();
@@ -75,11 +74,6 @@
 
   self.toggleAdvancedSearch = function() {
     return (self.showAdvancedSearch() ? self.showAdvancedSearch(false) : self.showAdvancedSearch(true));
-      // if(self.showAdvancedSearch())
-      //   self.showAdvancedSearch(false);
-      //
-      // else
-      //   self.showAdvancedSearch(true);
   };
 
 // Triggered when user click on daily. Updates search based to match selected daily.
@@ -105,41 +99,42 @@
     				scrollTop: $(".resultContainer").offset().top
 				  }, 1000);
 
-         // Triggers the Materialize update function
+      // Triggers the Materialize update function
       $("#AreaSelect").trigger('contentChanged');
       $("#DailySelect").trigger('contentChanged');
 
   }
 
-
-
+// Calls the Guild Wars 2 API, to get more info about the dailies, and check/sort out the gathering quests.
   self.findAchievementInfo = function(DailyIds){
     var isGathererDaily = false;
     var hasLocation = false;
    self.DailyGathererAchievements([]);
         $.get( "https://api.guildwars2.com/v2/achievements?ids=" + DailyIds, function( data ) {
               data.forEach(function(element){
+                // Check if the element from API, contain any of the daily options.
                   isGathererDaily =  self.DailyOptions().some(x => element.name.includes(x.name));
 
-                 // Only need to check if it's a gathering Daily
+                 // Check if it is a gathering daily. If yes add it to daily achievement array.
                   if(isGathererDaily)
                     self.DailyGathererAchievements.push(element);
               });
     });
     };
 
-  self.findDailyAchievements = function(){
-    var dailyIds = [];
-    $.get( "https://api.guildwars2.com/v2/achievements/daily", function( data ) {
-        data.pve.forEach(function(element){
-            	dailyIds.push(element.id);
+// Calls the Guild Wars 2 API, and get the id´s of the daily PvE quests. Then calls the findAchievementInfo function.
+      self.findDailyAchievements = function(){
+        var dailyIds = [];
+        $.get( "https://api.guildwars2.com/v2/achievements/daily", function( data ) {
+            data.pve.forEach(function(element){
+                  dailyIds.push(element.id);
+            });
+             self.findAchievementInfo(dailyIds);
         });
-         self.findAchievementInfo(dailyIds);
-    });
 
-  }
+      }
 
-
+// Add icons to daily option dropdown.
 	self.setDailyOptionicon = function (option, item) {
 		if(!item)
 			return
@@ -1006,10 +1001,10 @@
 
   ]
 }`;
-// Mangler  , Dessert
-
+// Maps the locationdata JSON into an observable(JS) variable.
  self.allLocations = ko.mapping.fromJSON(self.locationData)
 
+// Filters search, based on users choice
  self.FilterResults =  ko.computed(() => {
 
     if(!self.selectedDailyOption() && !self.selectedAreaOption())
@@ -1041,7 +1036,7 @@
         }
 
     },self).extend({ rateLimit: 300 });;
-
+    // Set location image. If image does not exist set default
     self.ResultImageSrc = function(imageName) {
         if(!imageName)
           return "images/LocationImages/Applenook_NoImage.jpg";
