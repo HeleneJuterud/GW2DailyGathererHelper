@@ -639,6 +639,15 @@ self.setGatheringItemIcon=function(itemType){switch(itemType){case "Miner":retur
     },
     {
       "Area": "Desert",
+      "MapName": "Domain of Kourna",
+      "Type": "Forager",
+      "WaypointCode": "[&BFcLAAA=]",
+      "WaypointName": "Allied Encampment Waypoint",
+      "GatheringItem": "Cluster of Desert Herbs",
+      "ImageName": "Desert/DomainKourna_Forager_Herbs.jpg"
+    },
+    {
+      "Area": "Desert",
       "MapName": "Crystal Oasis",
       "Type": "Miner",
       "WaypointCode": "[&BJMKAAA=]",
