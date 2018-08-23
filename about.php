@@ -29,13 +29,13 @@
       <a href="http://www.alpharevolver.com" target="_blank" class="brand-logo"> <img class="Logoimg" alt="Logo of Alpha Revolver Gaming Community" src="images/AlphaRevolver_textlogo_black.png" /></a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down margin-right-20px">
-        <li><a href="about.html">About & contact</a></li>
-        <li><a href="#">Daily Gatherer Helper</a></li>
+        <li><a href="about.php">About & contact</a></li>
+        <li><a href="index.html">Daily Gatherer Helper</a></li>
         <li><a href="http://www.alpharevolver.com/thedaemonarmy">About TDA & AR <span class="material-icons">open_in_new</span></a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
-        <li><a href="about.html">About & contact</a></li>      
-        <li><a href="#">Daily Gatherer Helper</a></li>
+        <li><a href="about.php">About & contact</a></li>
+        <li><a href="index.html">Daily Gatherer Helper</a></li>
         <li><a href="http://www.alpharevolver.com/thedaemonarmy">About TDA & AR <span class="material-icons">open_in_new</span></a></li>
       </ul>
     </div>
@@ -57,7 +57,7 @@
 			<p>© 2015 ArenaNet, LLC. All rights reserved. NCSOFT, the interlocking NC logo, ArenaNet, Guild Wars, Guild Wars Factions, Guild Wars Nightfall, Guild Wars: Eye of the North, Guild Wars 2, Heart of Thorns, and all associated logos and designs are trademarks or registered trademarks of NCSOFT Corporation. All other trademarks are the property of their respective owners.</p>
 
       <div class="row">
-        <h2>Contact</h2>  
+        <h2>Contact</h2>
         <p>You got any suggestions for improvement? New locations? Questions or feedback?<br> Leave us a message</p>
         <div class="row">
     <form method="post" action="#" class="col s12">
@@ -123,7 +123,7 @@ else
   $(document).ready(function() {
     $('select').material_select();
   });
-          
+
   </script>
        <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
