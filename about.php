@@ -111,7 +111,7 @@
 $msg = "From " . $_POST["email"] . "\r\n Name: " . $_POST["name"] . "\r\n Message: " .  $_POST["message"];
 echo $msg;
   if(isset($_POST["submit"]) && isset($_POST["name"]) && isset($_POST["email"])){
-    mail("tda@helenejuterud.no", $_POST["subject"], $msg);
+    mail("tda@helenekassandra.com", $_POST["subject"], $msg);
   }
 
 else

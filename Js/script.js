@@ -37,6 +37,7 @@
   self.filteredResult = ko.observableArray();
   self.DailyGathererAchievements = ko.observableArray();
   self.findDailyIndex = ko.observable(-1);
+  self.showingTodaysDaily = ko.observable(true);
 
   self.MiniDungeonsOptions = ko.observableArray([
     { name: "Bad Neighborhood", area: "Kryta"},
@@ -123,9 +124,27 @@
     };
 
 // Calls the Guild Wars 2 API, and get the id´s of the daily PvE quests. Then calls the findAchievementInfo function.
-      self.findDailyAchievements = function(){
+      self.findDailyAchievements = function(when){
+        // Set array to be empty to trigger loading icon, and avoid confusion if delays when switching between today or tomorrows daily
+        self.DailyGathererAchievements([]);
+        switch(when){
+          case "today":
+          var url = "https://api.guildwars2.com/v2/achievements/daily";
+          self.showingTodaysDaily(true);
+          break;
+
+          case "tomorrow":
+          var url = "https://api.guildwars2.com/v2/achievements/daily/tomorrow";
+          self.showingTodaysDaily(false);
+          break;
+
+          default:
+          var url = "https://api.guildwars2.com/v2/achievements/daily";
+          self.showingTodaysDaily(true);
+          break;
+        }
         var dailyIds = [];
-        $.get( "https://api.guildwars2.com/v2/achievements/daily", function( data ) {
+        $.get( url, function( data ) {
             data.pve.forEach(function(element){
                   dailyIds.push(element.id);
             });

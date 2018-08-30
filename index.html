@@ -12,7 +12,7 @@
 	<title>TDA - Daily Gatherer Helper</title>
   <meta charset="UTF-8" />
 		<link href="css/compressedStyle.css" type="text/css" rel="stylesheet">
-  		<link href="css/lightbox.min.css" type="text/Css" rel="stylesheet">
+  	<link href="css/lightbox.min.css" type="text/Css" rel="stylesheet">
   <!-- Compiled and minified CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -50,7 +50,16 @@
 	<div class="Wrapper">
 
     <div class="row center-align">
-      <p data-bind="click: findDailyAchievements()"><strong>Today's gathering dailies</strong>  <i class="material-icons">autorenew</i></p>
+      <p class="valign-wrapper headerText--Daily">
+        <i class="material-icons" data-bind="visible: !vm.showingTodaysDaily(), click: findDailyAchievements('today')">chevron_left</i>
+        <!-- ko if: vm.showingTodaysDaily() -->
+        <strong>Today's gathering dailies</strong>
+        <!-- /ko -->
+        <!-- ko ifnot: vm.showingTodaysDaily() -->
+        <strong>Tomorrow's gathering dailies</strong>
+        <!-- /ko -->
+        <i class="material-icons" data-bind="visible: vm.showingTodaysDaily(), click: function() { findDailyAchievements('tomorrow') }">chevron_right</i>
+      </p>
 
 				 <div data-bind="visible: vm.DailyGathererAchievements().length <= 0" class="preloader-wrapper small active">
 				    <div class="spinner-layer spinner-blue-only">
@@ -63,9 +72,7 @@
 				      </div>
 				    </div>
 				  </div>
-          <p>
             <i data-bind="visible: vm.DailyGathererAchievements().length > 0">Click on the daily to find the best locations to complete them</i>
-          </p>
 
       <div class="col s12 m8 offset-m2 l6 offset-l3" data-bind="foreach: DailyGathererAchievements">
       <div class="col s12 m6">
