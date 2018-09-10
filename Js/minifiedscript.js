@@ -575,6 +575,15 @@ self.setGatheringItemIcon=function(itemType){switch(itemType){case "Miner":retur
     },
     {
       "Area": "Heart of Maguuma",
+      "MapName": "Auric Basin",
+      "Type": "Miner",
+      "WaypointCode": "[&BGwIAAA=]",
+      "WaypointName": "Eastwatch Waypoint",
+      "GatheringItem": "Orichalcum & Mithril Ores",
+      "ImageName": "Heart_of_Maguuma/AuricBasin_Miner_EastWatch.jpg"
+    },
+    {
+      "Area": "Heart of Maguuma",
       "MapName": "Verdant Brink",
       "Type": "Miner",
       "WaypointCode": "[&BO8HAAA=]",
