@@ -48,6 +48,13 @@ footer{
   z-index: -99;
 }
 
+.infoBanner{
+  background-color: #FFF574;
+  color: #000;
+  text-align: center;
+  padding: 1rem;
+}
+
 /*----------------------
   Daily achievement
   ---------------------*/
