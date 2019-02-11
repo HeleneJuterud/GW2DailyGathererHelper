@@ -292,7 +292,15 @@
     },
 
 
-
+    {
+      "Area": "Kryta",
+      "MapName": "Kessex Hills",
+      "Type": "Forager",
+      "WaypointCode": "[&BAcAAAA=]",
+      "WaypointName": "Sojourner's Waypoint",
+      "GatheringItem": "Herb Sprouts",
+      "ImageName": "Kryta/Kryta_Forager_SojournersWay.jpg"
+    },
     {
       "Area": "Kryta",
       "MapName": "Queensdale",
